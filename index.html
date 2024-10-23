@@ -45,6 +45,67 @@
         
             <div class="post-item">
                 <h1>
+                    <a href="/2024/10/23/高级图书管理系统（2）/">
+                        高级图书管理系统（2）
+                    </a>
+                </h1>
+                <div class="create">
+                    <span>创建于</span>
+                    
+                        <time datetime="2024-10-23T13:33:23.000Z">
+                            2024-10-23
+                        </time>
+                    
+                    
+                </div>
+                
+                    <p>在过去两天的开发过程中，我继续完善我的图书管理系统。以下是我完成的任务、运用的技术、遇到的问题以及解决方案。</p>
+<h2 id="完成的任务"><a href="#完成的任务" class="headerlink" title="完成的任务"></a>完成的任务</h2><ol>
+<li><p><strong>用户注册和登录功能</strong>：</p>
+<ul>
+<li>实现了用户的注册和登录功能，用户的密码在注册时通过 SHA256 进行了加密，增强了系统的安全性。</li>
+</ul>
+</li>
+<li><p><strong>Redis 缓存系统</strong>：</p>
+<ul>
+<li>集成了 Redis 作为缓存系统，提升了对书籍信息的查询效率。在查询时，系统会首先检查 Redis 缓存，如果没有命中则查询 MySQL 数据库并将结果缓存。</li>
+</ul>
+</li>
+</ol>
+<h2 id="运用的技术"><a href="#运用的技术" class="headerlink" title="运用的技术"></a>运用的技术</h2><ul>
+<li>**C++**：作为主要开发语言，使用了面向对象的设计方法。</li>
+<li><strong>MySQL</strong>：作为后端数据库，存储用户信息和书籍信息。</li>
+<li><strong>Redis</strong>：用于缓存书籍信息，提高查询速度。</li>
+<li><strong>OpenSSL</strong>：用于实现密码的 SHA256 哈希加密。</li>
+<li><strong>JSON 库</strong>：用于序列化和反序列化书籍信息，以便于与 Redis 交互。</li>
+</ul>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><ol>
+<li><p><strong>用户登录失败</strong>：</p>
+<ul>
+<li>在进行用户登录时，系统返回“用户名或密码错误”。经过调试，发现是因为在用户注册时并没有将用户信息持久化到数据库中，只是存储在内存中。</li>
+</ul>
+<p><strong>解决方案</strong>：我调整了用户管理类，将注册的用户信息保存到 MySQL 数据库中，并在登录时从数据库中查询用户信息。</p>
+</li>
+<li><p><strong>Redis 连接问题</strong>：</p>
+<ul>
+<li>在使用 Redis 时，出现连接失败的情况。经过检查，发现 Redis 服务未启动。</li>
+</ul>
+<p><strong>解决方案</strong>：启动 Redis 服务，并确保其在 <code>localhost</code> 上监听。</p>
+</li>
+</ol>
+<h2 id="未来计划"><a href="#未来计划" class="headerlink" title="未来计划"></a>未来计划</h2><p>接下来，我计划实现书籍的添加、删除和修改功能，并确保与 Redis 的缓存机制无缝集成，以提高系统的响应速度。</p>
+<p>通过这两天的开发，我不仅提升了自己的编程能力，还加深了对数据库和缓存系统的理解。这为我的图书管理系统奠定了更坚实的基础。</p>
+
+                
+                <div class="readmore">
+                    <a href="/2024/10/23/高级图书管理系统（2）/">
+                        阅读更多
+                    </a>
+                </div>
+            </div>
+        
+            <div class="post-item">
+                <h1>
                     <a href="/2024/10/20/高级图书管理系统（1）/">
                         高级图书管理系统开发日志
                     </a>
@@ -192,7 +253,7 @@
             <a href="/tags">
                 标签
                 <sup style="font-size: 12px">
-                    [3]
+                    [4]
                 </sup>
             </a>
         </h2>
